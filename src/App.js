@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './shared/Header';
+import Header from './components/shared/Header';
+import Home from './pages/Home';
 import GlobalStyle from './assets/styles/globals';
 
 export default function App() {
@@ -22,7 +23,6 @@ export default function App() {
   );
 }
 
-const Home = () => <h1>Home</h1>;
 const SignUp = () => <h1>sign up</h1>;
 const SignIn = () => <h1>sign in</h1>;
 const BlogShow = () => <h1>Blog show</h1>;

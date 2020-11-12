@@ -7,7 +7,7 @@ export default function GuestLink() {
   return (
     <Container>
       <SignInLink to="/login">Sign In</SignInLink>
-      <GetStartedLink>Get started</GetStartedLink>
+      <GetStartedLink to="/register">Get started</GetStartedLink>
     </Container>
   );
 }

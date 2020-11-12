@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import LogoSrc from '../../assets/images/logo.png';
+import LogoSrc from '../../../assets/images/logo.png';
 
 const LogoLink = styled(Link)`
   display: block;
