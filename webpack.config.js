@@ -1,10 +1,10 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -12,20 +12,25 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader',
+        options: { name: 'img/[name].[ext]' },
       },
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "public"),
-    publicPath: "/",
+    contentBase: path.join(__dirname, 'public'),
+    publicPath: '/',
     compress: true,
     port: 9000,
     historyApiFallback: true,
   },
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 };
