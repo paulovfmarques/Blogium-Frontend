@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jp(e?)g|gif)$/,
         loader: 'file-loader',
         options: { name: 'img/[name].[ext]' },
       },
