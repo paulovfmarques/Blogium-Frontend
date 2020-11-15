@@ -14,11 +14,11 @@ export default function App() {
         <GlobalStyle />
         <Header />
         <Switch>
-          <Route path="/blogs/:blogId/posts/:postId/edit" component={PostEdit} />
-          <Route path="/blogs/:blogId/posts/:postId" component={PostShow} />
-          <Route path="/blogs/:blogId" component={BlogShow} />
-          <Route path="/register" component={SignUp} />
-          <Route path="/login" component={SignIn} />
+          <Route path="/users/:usersId/posts/:postId/edit" component={PostEdit} />
+          <Route path="/users/:userId/posts/:postId" component={PostShow} />
+          <Route path="/users/:userId" component={BlogShow} />
+          <Route path="/sign-up" component={SignUp} />
+          <Route path="/sign-in" component={SignIn} />
           <Route path="/" component={Home} />
         </Switch>
       </>
