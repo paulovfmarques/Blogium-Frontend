@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-const SignUpForm = styled.form`
+const SignInForm = styled.form`
   margin-left: auto;
   margin-right: auto;
   max-width: 220px;
   padding-top: 30px;
 
-  textarea,
   input[type='text'],
-  input[type='password'],
   input[type='email'],
-  input[type='url'] {
+  input[type='password'] {
     display: block;
     border: none;
     border-radius: 4px;
@@ -21,11 +19,6 @@ const SignUpForm = styled.form`
     line-height: 37px;
     font-size: 16px;
   }
-
-  textarea {
-    resize: none;
-    height: 111px;
-  }
 `;
 
-export default SignUpForm;
+export default SignInForm;

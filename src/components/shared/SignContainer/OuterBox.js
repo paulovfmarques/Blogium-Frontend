@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LoginBG from '../../assets/images/bg-login-screen.png';
+import LoginBG from '../../../assets/images/bg-login-screen.png';
 
 const OuterBox = styled.div`
   padding: 50px;

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import axios from 'axios';
-import Account from './Account';
-import SignContainer from '../../components/SignContainer';
+import Account from '../../components/shared/Account';
+import SignContainer from '../../components/shared/SignContainer';
 import SignUpForm from './SignUpForm';
+import Button from '../../components/shared/Button';
+import ButtonBox from '../../components/shared/ButtonBox';
+import ErrorBox from '../../components/shared/ErrorBox';
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [bio, setBio] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [error, setError] = useState(null);
@@ -22,6 +25,7 @@ export default function SignUp() {
         username,
         avatarUrl,
         bio,
+        email,
         password,
         passwordConfirmation,
       })
@@ -43,7 +47,7 @@ export default function SignUp() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           name="username"
-          placeholder="Username"
+          placeholder="Your name"
           required
         />
         <input
@@ -59,6 +63,14 @@ export default function SignUp() {
           placeholder="Talk about you"
           rows="4"
           cols="50"
+          required
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          placeholder="Email"
           required
         />
         <input
@@ -78,7 +90,7 @@ export default function SignUp() {
           required
         />
         <ButtonBox>
-          <button className="btn btn--inverted">Sign up</button>
+          <Button>Sign up</Button>
         </ButtonBox>
         {error && <ErrorBox>{error}</ErrorBox>}
       </SignUpForm>
@@ -90,15 +102,3 @@ export default function SignUp() {
     </SignContainer>
   );
 }
-
-const ButtonBox = styled.div`
-  padding-bottom: 15px;
-  text-align: right;
-`;
-
-const ErrorBox = styled.div`
-  padding-bottom: 15px;
-  font-size: 16px;
-  line-height: 20px;
-  color: #ea0358;
-`;

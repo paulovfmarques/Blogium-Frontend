@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import OuterBox from './OuterBox';
 import InnerBox from './InnerBox';
-import LogoLink from '../shared/Header/LogoLink';
+import LogoLink from '../Header/LogoLink';
 
 export default function SignUp({ children, screenRegistration }) {
   return (

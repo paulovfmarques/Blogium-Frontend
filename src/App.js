@@ -5,6 +5,7 @@ import Header from './components/shared/Header';
 import Home from './pages/Home';
 import PostShow from './pages/PostShow';
 import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 
 export default function App() {
   return (
@@ -25,6 +26,5 @@ export default function App() {
   );
 }
 
-const SignIn = () => <h1>sign in</h1>;
 const BlogShow = () => <h1>Blog show</h1>;
 const PostEdit = () => <h1>post edit</h1>;
