@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 export default function GuestLink() {
   return (
     <Container>
-      <SignInLink to="/login">Sign In</SignInLink>
-      <GetStartedLink to="/register">Get started</GetStartedLink>
+      <SignInLink to="/sign-in">Sign In</SignInLink>
+      <GetStartedLink to="/sign-up">Get started</GetStartedLink>
     </Container>
   );
 }

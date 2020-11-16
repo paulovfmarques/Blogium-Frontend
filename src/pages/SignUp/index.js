@@ -11,7 +11,7 @@ import ErrorBox from '../../components/shared/ErrorBox';
 export default function SignUp() {
   const [username, setUsername] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
-  const [bio, setBio] = useState('');
+  const [biography, setBiography] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -21,16 +21,17 @@ export default function SignUp() {
     e.preventDefault();
 
     axios
-      .post('/api/users/new', {
+      .post('http://localhost:3000/api/users/new', {
         username,
         avatarUrl,
-        bio,
+        biography,
         email,
         password,
         passwordConfirmation,
       })
       .then((response) => {
-        //...
+        if (response.error) return setError(response.error);
+         
       });
   }
 
@@ -59,7 +60,7 @@ export default function SignUp() {
         />
         <textarea
           value={bio}
-          onChange={(e) => setBio(e.target.value)}
+          onChange={(e) => setBiography(e.target.value)}
           placeholder="Talk about you"
           rows="4"
           cols="50"
