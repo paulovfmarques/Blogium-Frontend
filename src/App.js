@@ -6,23 +6,26 @@ import Home from './pages/Home';
 import PostShow from './pages/PostShow';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import { UserProvider } from './contexts/UserContext';
 
 export default function App() {
   return (
-    <Router>
-      <>
-        <GlobalStyle />
-        <Header />
-        <Switch>
-          <Route path="/users/:usersId/posts/:postId/edit" component={PostEdit} />
-          <Route path="/users/:userId/posts/:postId" component={PostShow} />
-          <Route path="/users/:userId" component={BlogShow} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/" component={Home} />
-        </Switch>
-      </>
-    </Router>
+    <UserProvider>
+      <Router>
+        <>
+          <GlobalStyle />
+          <Header />
+          <Switch>
+            <Route path="/users/:usersId/posts/:postId/edit" component={PostEdit} />
+            <Route path="/users/:userId/posts/:postId" component={PostShow} />
+            <Route path="/users/:userId" component={BlogShow} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path="/sign-in" component={SignIn} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </>
+      </Router>
+    </UserProvider>
   );
 }
 

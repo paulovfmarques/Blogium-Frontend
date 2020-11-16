@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Account from '../../components/shared/Account';
 import SignContainer from '../../components/shared/SignContainer';
@@ -7,8 +7,16 @@ import SignUpForm from './SignUpForm';
 import Button from '../../components/shared/Button';
 import ButtonBox from '../../components/shared/ButtonBox';
 import ErrorBox from '../../components/shared/ErrorBox';
+import { useUserContext } from '../../contexts/UserContext';
 
 export default function SignUp() {
+  const { user, setUser } = useUserContext();
+  if (user) {
+    console.log(user);
+    const history = useHistory();
+    history.push('/');
+  }
+
   const [username, setUsername] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [biography, setBiography] = useState('');
@@ -21,7 +29,7 @@ export default function SignUp() {
     e.preventDefault();
 
     axios
-      .post('http://localhost:3000/api/users/new', {
+      .post('http://localhost:3000/api/users/sign-up', {
         username,
         avatarUrl,
         biography,
@@ -30,7 +38,20 @@ export default function SignUp() {
         passwordConfirmation,
       })
       .then((response) => {
-        if (response.error) return setError(response.error);
+        if (!response.data) return setError('User not found');
+
+        setUser({
+          id: response.data.id,
+          username: response.data.username,
+          avatarUrl: response.data.avatarUrl,
+          biography: response.data.biography,
+          email: response.data.email,
+          uuid: response.data.uuid,
+        });
+      })
+      .catch((error) => {
+        const { response } = error;
+        if (response.data.error) return setError(response.data.error);
       });
   }
 
