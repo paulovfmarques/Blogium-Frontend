@@ -31,7 +31,6 @@ export default function SignUp() {
       })
       .then((response) => {
         if (response.error) return setError(response.error);
-         
       });
   }
 
@@ -59,7 +58,7 @@ export default function SignUp() {
           required
         />
         <textarea
-          value={bio}
+          value={biography}
           onChange={(e) => setBiography(e.target.value)}
           placeholder="Talk about you"
           rows="4"
