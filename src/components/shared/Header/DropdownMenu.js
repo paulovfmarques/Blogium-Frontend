@@ -30,6 +30,9 @@ export default function DropdownMenu() {
   return (
     <Container>
       <DropdownMenuLi>
+        <Link to="/new-story">New Story</Link>
+      </DropdownMenuLi>
+      <DropdownMenuLi>
         <Link to="/edit">Settings</Link>
       </DropdownMenuLi>
       <DropdownMenuLi onClick={onSignOutRequest}>Sign out</DropdownMenuLi>
