@@ -35,7 +35,7 @@ export default function SignIn() {
           avatarUrl: response.data.avatarUrl,
           biography: response.data.biography,
           email: response.data.email,
-          uuid: response.data.uuid,
+          token: response.data.token,
         });
       })
       .catch((error) => {

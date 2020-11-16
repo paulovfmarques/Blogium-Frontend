@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Spinner from '../../components/shared/Spinner';
 import PreContent from '../../components/shared/PreContent';
 import PostHeader from './PostHeader';
 import PostImage from './PostImage';

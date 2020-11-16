@@ -34,7 +34,7 @@ export default function ProfileEdit() {
         },
         {
           headers: {
-            Authorization: user.uuid,
+            Authorization: `Bearer ${user.token}`,
           },
         },
       )
@@ -47,7 +47,7 @@ export default function ProfileEdit() {
           avatarUrl: response.data.avatarUrl,
           biography: response.data.biography,
           email: response.data.email,
-          uuid: response.data.uuid,
+          token: response.data.token,
         });
 
         history.push('/');

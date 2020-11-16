@@ -10,12 +10,12 @@ import OverlayBorder from './OverlayBorder';
 export default function PostPreview({ post, author }) {
   return (
     <Container>
-      <ImageLink to={`/blogs/${post.blogId}/posts/${post.id}`}>
+      <ImageLink to={`/users/${post.blogId}/posts/${post.id}`}>
         <OverlayBorder />
         <img src={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor}`} alt="blog post cover image" />
       </ImageLink>
       <Content>
-        <TextLink to={`/blogs/${post.blogId}/posts/${post.id}`}>
+        <TextLink to={`/users/${post.blogId}/posts/${post.id}`}>
           <h3>{post.title}</h3>
           <p>{post.subTitle}</p>
         </TextLink>

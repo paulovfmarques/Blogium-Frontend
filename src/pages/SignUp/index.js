@@ -18,7 +18,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [error, setError] = useState(null);
-  
+  const history = useHistory();
 
   if (user) history.push('/');
 
@@ -35,16 +35,10 @@ export default function SignUp() {
         passwordConfirmation,
       })
       .then((response) => {
+        if (response.status === 201) {
+          return history.push('/sign-in');
+        }
         if (!response.data) return setError('User not found');
-
-        setUser({
-          id: response.data.id,
-          username: response.data.username,
-          avatarUrl: response.data.avatarUrl,
-          biography: response.data.biography,
-          email: response.data.email,
-          uuid: response.data.uuid,
-        });
       })
       .catch((error) => {
         const { response } = error;
