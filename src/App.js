@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import PostShow from './pages/PostShow';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import ProfileEdit from './pages/ProfileEdit';
 import { UserProvider } from './contexts/UserContext';
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
             <Route path="/users/:userId" component={BlogShow} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/sign-in" component={SignIn} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/edit" component={ProfileEdit} />
             <Route path="/" component={Home} />
           </Switch>
         </>
@@ -30,6 +31,5 @@ export default function App() {
   );
 }
 
-const Profile = () => <h1>Profile</h1>;
 const BlogShow = () => <h1>Blog show</h1>;
 const PostEdit = () => <h1>post edit</h1>;

@@ -30,7 +30,7 @@ export default function DropdownMenu() {
   return (
     <Container>
       <DropdownMenuLi>
-        <Link to="/profile">My Profile</Link>
+        <Link to="/edit">Settings</Link>
       </DropdownMenuLi>
       <DropdownMenuLi onClick={onSignOutRequest}>Sign out</DropdownMenuLi>
     </Container>
