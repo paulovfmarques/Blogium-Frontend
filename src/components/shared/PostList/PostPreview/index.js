@@ -1,38 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import dayjs from 'dayjs';
 import ImageLink from './ImageLink';
 import Content from './Content';
 import TextLink from './TextLink';
 import Meta from './Meta';
 import SubMeta from './SubMeta';
 import OverlayBorder from './OverlayBorder';
+import Avatar from '../../Avatar';
+import { Link } from 'react-router-dom';
 
-export default function PostPreview({ post, author }) {
+export default function PostPreview({ post }) {
   return (
     <Container>
-      <ImageLink to={`/users/${post.blogId}/posts/${post.id}`}>
+      <ImageLink to={`/posts/${post.id}`}>
         <OverlayBorder />
-        <img src={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor}`} alt="blog post cover image" />
+        <img src={post.coverUrl} alt="blog post cover image" />
       </ImageLink>
       <Content>
-        <TextLink to={`/users/${post.blogId}/posts/${post.id}`}>
+        <TextLink to={`/posts/${post.id}`}>
           <h3>{post.title}</h3>
-          <p>{post.subTitle}</p>
+          <p>{post.contentPreview}</p>
         </TextLink>
         <Meta>
-          <a
-            className="avatar avatar--small avatar--circled"
-            href="https://blog.kentcdodds.com/@kentcdodds"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={author.avatarUrl} />
-          </a>
+          <Avatar small circled avatarUrl={post.author.avatarUrl} />
           <SubMeta>
-            <a href="https://blog.kentcdodds.com/@kentcdodds" target="_blank" rel="noopener noreferrer">
-              {author.username}
-            </a>
-            <span>{post.date}</span>
+            <Link to={`/users/${post.author.id}`}>{post.author.username}</Link>
+            <span>{dayjs(post.publishedAt).format('DD/MM/YYYY')}</span>
           </SubMeta>
         </Meta>
       </Content>

@@ -4,6 +4,7 @@ const SubMeta = styled.div`
   flex: 1 1 auto;
   font-size: 15px;
   line-height: 1.4;
+  margin-left: 10px;
 
   span {
     display: block;
