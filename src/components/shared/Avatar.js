@@ -15,8 +15,8 @@ const AvatarLink = styled.a`
     border-radius: 50%;
   }
 
-  ${(props) =>
-    props.smaller &&
+  ${({ smaller }) =>
+    smaller &&
     `
   img {
     width: 30px;
@@ -24,8 +24,8 @@ const AvatarLink = styled.a`
     }
   `}
 
-  ${(props) =>
-    props.small &&
+  ${({ small }) =>
+    small &&
     `
   img {
     width: 32px;
@@ -33,8 +33,8 @@ const AvatarLink = styled.a`
     }
   `}
 
-  ${(props) =>
-    props.middle &&
+  ${({ middle }) =>
+    middle &&
     `
   img {
     width: 40px;
@@ -42,8 +42,8 @@ const AvatarLink = styled.a`
     }
   `}
 
-  ${(props) =>
-    props.big &&
+  ${({ big }) =>
+    big &&
     `
   img {
     width: 40px;
@@ -51,16 +51,16 @@ const AvatarLink = styled.a`
     }
   `}
 
-  ${(props) =>
-    props.circled &&
+  ${({ circled }) =>
+    circled &&
     `
   img {
     border-radius: 50%;
   }
   `}
 
-  ${(props) =>
-    props.squared &&
+  ${({ squared }) =>
+    squared &&
     `
   img {
     border-radius: 3px;
@@ -68,8 +68,8 @@ const AvatarLink = styled.a`
   `}
 
   @media (min-width: 768px) {
-    ${(props) =>
-      props.smaller &&
+    ${({ smaller }) =>
+      smaller &&
       `
   img {
     width: 32px;
@@ -77,8 +77,8 @@ const AvatarLink = styled.a`
     }
   `}
 
-    ${(props) =>
-      props.small &&
+    ${({ small }) =>
+      small &&
       `
   img {
     width: 36px;

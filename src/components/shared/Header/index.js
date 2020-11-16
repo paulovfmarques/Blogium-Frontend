@@ -5,8 +5,12 @@ import LinkSet from './LinkSet';
 import Actions from './Actions';
 import LogoLink from './LogoLink';
 import GuestLink from './GuestLink';
+import UserMenu from './UserMenu';
+import { useUserContext } from '../../../contexts/UserContext';
 
-export default function Header({ history }) {
+export default function Header() {
+  const { user } = useUserContext();
+
   function handleLogout(e) {
     console.log('IMPLEMENTAR LOGGOUT');
   }
@@ -17,9 +21,7 @@ export default function Header({ history }) {
         <LinkSet>
           <LogoLink to="/" />
         </LinkSet>
-        <Actions>
-          <GuestLink />
-        </Actions>
+        <Actions>{user ? <UserMenu user={user} /> : <GuestLink />}</Actions>
       </InnerWrapper>
     </Container>
   );

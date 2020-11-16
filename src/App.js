@@ -21,6 +21,8 @@ export default function App() {
             <Route path="/users/:userId" component={BlogShow} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/sign-in" component={SignIn} />
+            <Route path="/sign-out" component={SignOut} />
+            <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
           </Switch>
         </>
@@ -29,5 +31,7 @@ export default function App() {
   );
 }
 
+const Profile = () => <h1>Profile</h1>;
+const SignOut = () => <h1>SignOut</h1>;
 const BlogShow = () => <h1>Blog show</h1>;
 const PostEdit = () => <h1>post edit</h1>;
