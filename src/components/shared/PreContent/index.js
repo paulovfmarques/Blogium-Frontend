@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useUserContext } from '../../../contexts/UserContext';
 
 export default function PreContent({ withoutBottomLine }) {
+  const { user } = useUserContext();
+
   return (
     <Container>
       <InnerWrapper withoutBottomLine={withoutBottomLine}>
         <Links>
-          <Link to="/blogs/1">HOME</Link>
+          <Link to="/">HOME</Link>
+          {user && <Link to={`/users/${user.id}`}>MY STORIES</Link>}
           <Divider />
         </Links>
       </InnerWrapper>

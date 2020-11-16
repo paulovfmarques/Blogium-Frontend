@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import cover from '../../../assets/images/blog-header.jpeg';
+import cover from '../../../../assets/images/blog-header.jpeg';
 import Overlay from './Overlay';
 import InnerWrapper from './InnerWrapper';
 import Text from './Text';

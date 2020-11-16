@@ -1,15 +1,12 @@
 import React from 'react';
-import Spinner from '../../components/shared/Spinner';
 import BlogHeader from './BlogHeader';
-import PreContent from '../../components/shared/PreContent';
+import PreContent from '../PreContent';
 import Posts from './Posts';
 import PostPreview from './PostPreview';
-import posts from '../../../data/posts';
+import posts from '../../../../data/posts';
 
-export default function Home() {
-  const name = 'NOME DO BLOG';
-  const description = 'Descrição do blog';
-  const author = 'AUTOR DO BLOG';
+export default function PostList({ name, description }) {
+  const author = 'SOME AUTHOR';
 
   return (
     <main>
