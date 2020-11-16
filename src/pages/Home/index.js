@@ -6,11 +6,7 @@ import Posts from './Posts';
 import PostPreview from './PostPreview';
 import posts from '../../../data/posts';
 
-export default function Home({ data }) {
-  // if (!data) {
-  //   return <Spinner />;
-  // }
-
+export default function Home() {
   const name = 'NOME DO BLOG';
   const description = 'Descrição do blog';
   const author = 'AUTOR DO BLOG';

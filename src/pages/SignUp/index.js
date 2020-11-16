@@ -11,12 +11,6 @@ import { useUserContext } from '../../contexts/UserContext';
 
 export default function SignUp() {
   const { user, setUser } = useUserContext();
-  if (user) {
-    console.log(user);
-    const history = useHistory();
-    history.push('/');
-  }
-
   const [username, setUsername] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [biography, setBiography] = useState('');
@@ -24,6 +18,9 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [error, setError] = useState(null);
+  
+
+  if (user) history.push('/');
 
   function onSubmit(e) {
     e.preventDefault();

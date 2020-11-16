@@ -9,7 +9,7 @@ export default function SignUp({ children, screenRegistration }) {
     <Container>
       <OuterBox screenRegistration={screenRegistration}>
         <InnerBox>
-          <LogoLink style={{ margin: 'auto' }} to={'/'} />
+          <LogoLink style={{ margin: 'auto' }} to="/" />
           {children}
         </InnerBox>
       </OuterBox>

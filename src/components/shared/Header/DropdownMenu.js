@@ -1,16 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import { useUserContext } from '../../../contexts/UserContext';
 
 export default function DropdownMenu() {
+  const { user, setUser } = useUserContext();
+  const history = useHistory();
+
+  if (!user) history.push('/');
+
+  function onSignOutRequest() {
+    axios
+      .post(
+        'http://localhost:3000/api/users/sign-out',
+        {},
+        {
+          headers: {
+            Authorization: user.uuid,
+          },
+        },
+      )
+      .then((_r) => {
+        setUser(null);
+      })
+      .catch((_e) => setUser(null));
+  }
+
   return (
     <Container>
-      <li>
-        <DropdownMenuLink to="/profile">My Profile</DropdownMenuLink>
-      </li>
-      <li>
-        <DropdownMenuLink to="/sign-out">Sign out</DropdownMenuLink>
-      </li>
+      <DropdownMenuLi>
+        <Link to="/profile">My Profile</Link>
+      </DropdownMenuLi>
+      <DropdownMenuLi onClick={onSignOutRequest}>Sign out</DropdownMenuLi>
     </Container>
   );
 }
@@ -24,7 +46,7 @@ const Container = styled.ul`
   user-select: none;
 `;
 
-const DropdownMenuLink = styled(Link)`
+const DropdownMenuLi = styled.li`
   display: inline-block;
   border-radius: 4px;
   background-color: transparent;
