@@ -7,10 +7,7 @@ export default function PostText({ post }) {
   return (
     <Container>
       <Title>{post.title}</Title>
-      <p>
-        <em>{post.subTitle}</em>
-      </p>
-      <Content dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
+      <Content dangerouslySetInnerHTML={{ __html: post.content }} />
     </Container>
   );
 }
@@ -25,7 +22,7 @@ const Container = styled.div`
   letter-spacing: -0.004em;
 
   pre {
-    overflow: scroll;
+    overflow-x: scroll;
   }
 
   h1,

@@ -17,9 +17,9 @@ export default function App() {
           <GlobalStyle />
           <Header />
           <Switch>
-            <Route path="/users/:usersId/posts/:postId/edit" component={PostEdit} />
-            <Route path="/users/:userId/posts/:postId" component={PostShow} />
             <Route path="/users/:userId" component={BlogShow} />
+            <Route path="/posts/:postId/edit" component={PostEdit} />
+            <Route path="/posts/:postId" component={PostShow} />
             <Route path="/new-story" component={NewStory} />
             <Route path="/sign-up" component={SignUp} />
             <Route path="/sign-in" component={SignIn} />

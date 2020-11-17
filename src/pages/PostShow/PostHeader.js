@@ -1,20 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import Avatar from '../../components/shared/Avatar';
+import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 
-export default function PostHeader({ post, author }) {
+export default function PostHeader({ post }) {
+  const { author } = post;
+  const readTimeEstimateInMinutes = Math.ceil(post.content.split(' ').length / 150);
+
   return (
     <Container>
       <Avatar big circled href="https://blog.kentcdodds.com/@kentcdodds" avatarUrl={author.avatarUrl} />
       <Text>
         <Title>
-          <a href="https://blog.kentcdodds.com/@kentcdodds" target="_blank" rel="noopener noreferrer">
-            {author.username}
-          </a>
+          <Link to={`/users/${author.id}`}>{author.username}</Link>
         </Title>
-        <Description>{author.bio}</Description>
+        <Description>{author.biography}</Description>
         <Meta>
-          {post.date} · {post.readTimeEstimate}
+          {dayjs(post.publishAt).format('DD/MM/YYYY HH:MM')} · {readTimeEstimateInMinutes} MIN
         </Meta>
       </Text>
     </Container>

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function PostImage({ post }) {
+export default function PostImage({ coverUrl }) {
   return (
     <FigureContainer>
-      <img src={`https://cdn-images-1.medium.com/max/1600/${post.imgDescriptor}`} />
+      <img src={coverUrl} />
     </FigureContainer>
   );
 }
