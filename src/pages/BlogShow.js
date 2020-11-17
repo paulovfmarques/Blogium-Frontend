@@ -7,14 +7,27 @@ export default function BlogShow() {
   const { userId } = useParams();
 
   const [posts, setPosts] = useState(null);
-  const [page, setPage] = useState();
+  const [numberOfPosts, setNumberOfPosts] = useState(null);
+  const [page, setPage] = useState(1);
+  const postsPerPage = 5;
 
-  function onPageChange() {}
+  function onPageChange(newPage) {
+    setPage(newPage);
+  }
 
   useEffect(() => {
+    const offset = (page - 1) * postsPerPage;
+    const limit = postsPerPage;
+
     axios
-      .get(`http://localhost:3000/api/users/${userId}/posts`)
+      .get(`http://localhost:3000/api/users/${userId}/posts`, {
+        params: {
+          offset,
+          limit,
+        },
+      })
       .then((response) => {
+        setNumberOfPosts(response.data.count);
         setPosts(response.data.posts);
       })
       .catch((error) => {
@@ -22,5 +35,13 @@ export default function BlogShow() {
       });
   }, [page]);
 
-  return <PostList name="Daily stories by user" posts={posts} page={page} onPageChange={onPageChange}></PostList>;
+  return (
+    <PostList
+      name="Daily stories by user"
+      posts={posts}
+      page={page}
+      onPageChange={onPageChange}
+      postCount={numberOfPosts}
+    />
+  );
 }
