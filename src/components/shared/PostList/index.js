@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Spinner from '../Spinner';
 import BlogHeader from './BlogHeader';
 import PreContent from '../PreContent';
 import Posts from './Posts';
 import PostPreview from './PostPreview';
-import axios from 'axios';
 
-export default function PostList({ name, description }) {
-  const [posts, setPosts] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3000/api/posts')
-      .then((response) => {
-        setPosts(response.data.posts);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+export default function PostList({ name, description, posts }) {
   if (!posts) return <Spinner />;
 
   return (

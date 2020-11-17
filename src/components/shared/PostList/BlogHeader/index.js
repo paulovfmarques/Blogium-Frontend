@@ -5,14 +5,14 @@ import Overlay from './Overlay';
 import InnerWrapper from './InnerWrapper';
 import Text from './Text';
 
-export default function BlogHeader({ name, description }) {
+export default function BlogHeader({ name }) {
   return (
     <Container>
       <Overlay />
       <InnerWrapper>
         <Text>
           <h1>{name}</h1>
-          <h2>{description}</h2>
+          <h2>Be updated. Always.</h2>
         </Text>
       </InnerWrapper>
     </Container>

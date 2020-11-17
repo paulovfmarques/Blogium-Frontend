@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GlobalStyle from './assets/styles/globals';
 import Header from './components/shared/Header';
 import Home from './pages/Home';
+import BlogShow from './pages/BlogShow';
 import PostShow from './pages/PostShow';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
@@ -33,5 +34,4 @@ export default function App() {
 }
 
 const NewStory = () => <h1>New Story</h1>;
-const BlogShow = () => <h1>Blog show</h1>;
 const PostEdit = () => <h1>post edit</h1>;
