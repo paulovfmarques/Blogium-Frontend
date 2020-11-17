@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Avatar from '../../components/shared/Avatar';
 import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
 
-export default function PostHeader({ post }) {
+export default function AuthorInfo({ post }) {
   const { author } = post;
-  const readTimeEstimateInMinutes = Math.ceil(post.content.split(' ').length / 150);
 
   return (
     <Container>
@@ -16,9 +14,6 @@ export default function PostHeader({ post }) {
           <Link to={`/users/${author.id}`}>{author.username}</Link>
         </Title>
         <Description>{author.biography}</Description>
-        <Meta>
-          {dayjs(post.publishAt).format('DD/MM/YYYY HH:MM')} · {readTimeEstimateInMinutes} MIN
-        </Meta>
       </Text>
     </Container>
   );
@@ -26,7 +21,7 @@ export default function PostHeader({ post }) {
 
 const Container = styled.header`
   display: flex;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px 20px 10px;
   max-width: 740px;
 
@@ -65,8 +60,4 @@ const Description = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-`;
-
-const Meta = styled.div`
-  color: var(--color-font-secondary);
 `;

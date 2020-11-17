@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import PreContent from '../../components/shared/PreContent';
-import PostHeader from './PostHeader';
+import AuthorInfo from './AuthorInfo';
 import PostImage from './PostImage';
 import PostText from './PostText';
 import Spinner from '../../components/shared/Spinner';
@@ -30,11 +30,11 @@ export default function PostShow() {
     <main>
       <PreContent />
       <article>
-        <PostHeader post={post} />
         <section>
           <PostImage coverUrl={post.coverUrl} />
           <PostText post={post} />
         </section>
+        <AuthorInfo post={post} />
       </article>
     </main>
   );
