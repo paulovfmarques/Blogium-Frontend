@@ -27,8 +27,8 @@ export default css`
   }
 
   html {
-    font-family: 'medium-content-sans-serif-font', sans-serif;
-    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     line-height: 1.2;
     color: var(--color-font-primary);
     text-rendering: optimizeLegibility;

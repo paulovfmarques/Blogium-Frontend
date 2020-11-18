@@ -28,6 +28,10 @@ export default function PostShow() {
       });
   }, []);
 
+  function onEditButtonClick() {
+    history.push(`/posts/${postId}/edit`);
+  }
+
   function onDeleteButtonClick() {
     const shouldDelete = confirm('Do you really want to delete this post? (This operation is irreversible)');
     if (shouldDelete) {
@@ -57,7 +61,9 @@ export default function PostShow() {
           <PostImage coverUrl={post.coverUrl} />
           {user && user.id === post.author.id && (
             <ButtonContainer>
-              <Button style={{ color: 'orange', borderColor: 'orange' }}>Edit</Button>
+              <Button style={{ color: 'orange', borderColor: 'orange' }} onClick={onEditButtonClick}>
+                Edit
+              </Button>
               <Button style={{ color: 'red', borderColor: 'red' }} onClick={onDeleteButtonClick}>
                 Delete
               </Button>

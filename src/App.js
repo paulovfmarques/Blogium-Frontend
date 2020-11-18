@@ -5,6 +5,7 @@ import Header from './components/shared/Header';
 import Home from './pages/Home';
 import BlogShow from './pages/BlogShow';
 import PostShow from './pages/PostShow';
+import PostEdit from './pages/PostEdit';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import ProfileEdit from './pages/ProfileEdit';
@@ -34,4 +35,3 @@ export default function App() {
 }
 
 const NewStory = () => <h1>New Story</h1>;
-const PostEdit = () => <h1>post edit</h1>;

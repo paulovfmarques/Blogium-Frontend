@@ -5,7 +5,7 @@ const InnerBox = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    font-family: medium-marketing-display-font, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-family: 'Merriweather', Georgia, Cambria, 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
