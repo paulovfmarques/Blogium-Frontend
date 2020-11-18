@@ -1,26 +1,15 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import React, { useContext, createContext } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const UserContext = createContext();
 
 export default UserContext;
 
 export function UserProvider(props) {
-  const [user, setUserState] = useState(null);
-
-  useEffect(() => {
-    const userRepository = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
-    if (userRepository) {
-      setUserState(userRepository);
-    }
-  }, []);
-
-  function setUser(newUser) {
-    setUserState(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser));
-  }
+  const [user, setUser] = useLocalStorage('user', null);
 
   return (
-    <UserContext.Provider value={{ user, setUser }} {...props}>
+    <UserContext.Provider {...props} value={{ user, setUser }}>
       {props.children}
     </UserContext.Provider>
   );

@@ -17,7 +17,7 @@ export default function DropdownMenu() {
         {},
         {
           headers: {
-            Authorization: user.uuid,
+            Authorization: `Bearer ${user.token}`,
           },
         },
       )

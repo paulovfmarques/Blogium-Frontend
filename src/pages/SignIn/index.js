@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import SignContainer from '../../components/shared/SignContainer';
@@ -16,7 +16,9 @@ export default function SignIn() {
   const [error, setError] = useState(null);
   const history = useHistory();
 
-  if (user) history.push('/');
+  useEffect(() => {
+    if (user) history.push(`/users/${user.id}`);
+  }, [user]);
 
   function onSubmit(e) {
     e.preventDefault();

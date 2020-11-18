@@ -24,11 +24,13 @@ export default function Home() {
         },
       })
       .then((response) => {
+        console.log(response);
         setNumberOfPosts(response.data.count);
         setPosts(response.data.posts);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.toJSON());
+        alert('Não foi possível obter os posts');
       });
   }, [page]);
 
