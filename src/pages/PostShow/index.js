@@ -5,6 +5,7 @@ import PreContent from '../../components/shared/PreContent';
 import AuthorInfo from './AuthorInfo';
 import PostImage from './PostImage';
 import PostText from './PostText';
+import Claps from './Claps';
 import Spinner from '../../components/shared/Spinner';
 import Button from '../../components/shared/Button';
 import axios from 'axios';
@@ -45,7 +46,7 @@ export default function PostShow() {
           alert('The post was deleted (╯°□°)╯︵ ┻━┻');
           history.push('/');
         })
-        .catch((error) => {
+        .catch(() => {
           alert('Operation did not succeed');
         });
     }
@@ -53,22 +54,31 @@ export default function PostShow() {
 
   if (!post) return <Spinner />;
 
+  const isAdmin = user && user.id === post.author.id;
+
   return (
     <main>
       <PreContent />
       <article>
         <section>
           <PostImage coverUrl={post.coverUrl} />
-          {user && user.id === post.author.id && (
-            <ButtonContainer>
-              <Button style={{ color: 'orange', borderColor: 'orange' }} onClick={onEditButtonClick}>
-                Edit
-              </Button>
-              <Button style={{ color: 'red', borderColor: 'red' }} onClick={onDeleteButtonClick}>
-                Delete
-              </Button>
-            </ButtonContainer>
-          )}
+          <EditionContainer isAdmin={isAdmin}>
+            {user && <Claps post={post} />}
+            {isAdmin && (
+              <div>
+                <Button
+                  style={{ color: 'orange', borderColor: 'orange' }}
+                  onClick={onEditButtonClick}
+                  style={{ marginRight: 10 }}
+                >
+                  Edit
+                </Button>
+                <Button style={{ color: 'red', borderColor: 'red' }} onClick={onDeleteButtonClick}>
+                  Delete
+                </Button>
+              </div>
+            )}
+          </EditionContainer>
           <PostText post={post} />
         </section>
         <AuthorInfo post={post} />
@@ -77,12 +87,11 @@ export default function PostShow() {
   );
 }
 
-const ButtonContainer = styled.div`
+const EditionContainer = styled.div`
   margin: 0 auto;
   padding: 0 20px 40px;
   max-width: 740px;
-
-  button {
-    margin-right: 10px;
-  }
+  display: flex;
+  align-items: center;
+  ${({ isAdmin }) => (isAdmin ? 'justify-content: space-between' : 'justify-content: flex-start')}
 `;
