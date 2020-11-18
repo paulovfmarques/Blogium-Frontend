@@ -42,7 +42,7 @@ export default function DropdownMenu() {
 
 const Container = styled.ul`
   position: absolute;
-  width: 100px;
+  width: 150px;
   background-color: white;
   border-radius: 5px;
   top: 120%;

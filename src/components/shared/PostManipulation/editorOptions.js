@@ -2,7 +2,6 @@ const editorOptions = {
   toolbar: {
     buttons: [
       'bold',
-      'italic',
       'underline',
       'anchor',
       'h3',

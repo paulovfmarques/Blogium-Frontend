@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import BlogShow from './pages/BlogShow';
 import PostShow from './pages/PostShow';
 import PostEdit from './pages/PostEdit';
+import NewStory from './pages/NewStory';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import ProfileEdit from './pages/ProfileEdit';
@@ -33,5 +34,3 @@ export default function App() {
     </UserProvider>
   );
 }
-
-const NewStory = () => <h1>New Story</h1>;

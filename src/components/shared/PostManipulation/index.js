@@ -40,14 +40,14 @@ export default function PostManipulation({
           onCoverUrlChange={(e) => onCoverUrlChange(e.target.value)}
         />
       </PostMeta>
-      <PostContent>
+      <PostContent style={{ marginTop: 20 }}>
         <Editor tag="div" text={content} onChange={onContentChange} options={editorOptions} />
       </PostContent>
       <PostActions>
         <Button style={{ marginRight: '10px' }} onClick={onPostSaveButtonClick}>
           Save
         </Button>
-        <CancelLink to={`/posts/${postId}`}>Cancel</CancelLink>
+        <CancelLink to={postId ? `/posts/${postId}` : '/'}>Cancel</CancelLink>
       </PostActions>
     </main>
   );

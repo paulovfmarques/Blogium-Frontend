@@ -350,6 +350,11 @@ export default css`
     word-wrap: break-word;
     min-height: 30px;
   }
+
+  [contenteditable]:focus {
+    outline: 0px solid transparent;
+  }
+
   .medium-editor-element img {
     max-width: 100%;
   }
