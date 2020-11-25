@@ -92,7 +92,6 @@ function ClapContainer(props) {
     clap && (clap.style.transform = 'scale(1, 1)');
     const animationTimeline = new mojs.Timeline();
     animationTimeline.add([countAnimation, countTotalAnimation, scaleButton, circleBurst, triangleBurst]);
-    console.log('fui chamado!!');
 
     if (isLoading) {
       setLoading(false);

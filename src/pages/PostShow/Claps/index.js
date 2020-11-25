@@ -8,8 +8,6 @@ export default function Claps({ post }) {
   const [postTotalClaps, setPostTotalClaps] = useState(0);
 
   function onCountChange({ count, countTotal }) {
-    console.log(count, countTotal);
-    console.log(userClaps, postTotalClaps);
     if (count < userClaps) return;
 
     setUserClaps(count);
