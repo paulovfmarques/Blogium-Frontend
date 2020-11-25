@@ -9,7 +9,7 @@ export default function BlogShow() {
   const [posts, setPosts] = useState(null);
   const [numberOfPosts, setNumberOfPosts] = useState(null);
   const [page, setPage] = useState(1);
-  const postsPerPage = 5;
+  const postsPerPage = 6;
 
   function onPageChange(newPage) {
     setPage(newPage);
@@ -42,6 +42,7 @@ export default function BlogShow() {
       page={page}
       onPageChange={onPageChange}
       postCount={numberOfPosts}
+      postsPerPage={postsPerPage}
     />
   );
 }

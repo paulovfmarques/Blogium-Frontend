@@ -6,7 +6,7 @@ export default function Home() {
   const [posts, setPosts] = useState(null);
   const [numberOfPosts, setNumberOfPosts] = useState(null);
   const [page, setPage] = useState(1);
-  const postsPerPage = 5;
+  const postsPerPage = 6;
 
   function onPageChange(newPage) {
     setPage(newPage);
@@ -35,6 +35,6 @@ export default function Home() {
   }, [page]);
 
   return (
-    <PostList name="Daily stories" posts={posts} page={page} onPageChange={onPageChange} postCount={numberOfPosts} />
+    <PostList name="Daily stories" posts={posts} page={page} onPageChange={onPageChange} postCount={numberOfPosts} postsPerPage={postsPerPage}/>
   );
 }

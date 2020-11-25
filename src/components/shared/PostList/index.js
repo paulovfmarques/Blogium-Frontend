@@ -7,9 +7,8 @@ import PreContent from '../PreContent';
 import Posts from './Posts';
 import PostPreview from './PostPreview';
 
-export default function PostList({ name, description, posts, page, postCount, onPageChange }) {
+export default function PostList({ name, description, posts, page, postCount, onPageChange, postsPerPage }) {
   if (!posts) return <Spinner />;
-  const itemsPerPage = 5;
 
   return (
     <main>
@@ -18,11 +17,11 @@ export default function PostList({ name, description, posts, page, postCount, on
       <Posts>
         {posts.length === 0 ? <h2>No stories yet 😔</h2> : posts.map((p) => <PostPreview post={p} key={p.id} />)}
       </Posts>
-      {postCount > itemsPerPage && (
+      {postCount > postsPerPage && (
         <PaginationContainer>
           <Pagination
             activePage={page}
-            itemsCountPerPage={itemsPerPage}
+            itemsCountPerPage={postsPerPage}
             totalItemsCount={postCount}
             pageRangeDisplayed={3}
             onChange={onPageChange}
