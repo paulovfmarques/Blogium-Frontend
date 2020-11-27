@@ -7,7 +7,7 @@ import ClapCount from './ClapCount';
 import ClapCountTotal from './ClapCountTotal';
 
 function ClapContainer(props) {
-  const { count, countTotal, isInitiallyHover = false, isInitiallyClicked = false } = props;
+  const { fetchClaps, count, countTotal, isInitiallyHover = false, isInitiallyClicked = false } = props;
   const [isClicked, setClicked] = useState(isInitiallyClicked);
   const [isUnclicked, setUnclicked] = useState(true);
   const [isHover, setHover] = useState(isInitiallyHover);
@@ -105,6 +105,7 @@ function ClapContainer(props) {
 
     if (count < maxCount) {
       onCountChange({ count: count + 1, countTotal: countTotal + 1 });
+      fetchClaps();
       setUnclicked(false);
       setClicked(true);
     }
